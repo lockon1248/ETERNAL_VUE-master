@@ -106,7 +106,7 @@
         </div>
     </header>
     <section class="shop_all_page">
-        <nav class="shop_all_nav" id="nav">
+        <!-- <nav class="shop_all_nav" id="nav">
             <div class="large_category">
                 <a href="#">
                     <h3 class="nav_category" v-for="item in first" :key="index">{{item.name_h3_one}}</h3>
@@ -157,6 +157,74 @@
                     <a href="#">三件7折</a>
                 </div>
             </div>
+        </nav> -->
+        <nav class="shop_all_nav" id="nav">
+            <div class="large_category" v-for="(productTypesItem,index) in productTypesList" :key="index">
+                <a :href="productTypesItem.url">
+                    <h3 class="nav_category">{{productTypesItem.title}}</h3>
+                </a>
+                <div class="nav_category_Details" >
+                    <a v-for="productType in productTypesItem.productTypes" 
+                        :key="index" 
+                        :href="productType.url">
+                        {{productType.linkName}}
+                    </a>
+                </div>
+            </div>
+            <!-- <div class="large_category">
+                <a href="#">
+                    <h3 class="nav_category">下身類</h3>
+                </a>
+                <div class="nav_category_Details">
+                    <a href="#">短裙</a>
+                    <a href="#">長裙</a>
+                    <a href="#">短褲</a>
+                    <a href="#">長褲</a>
+                    <a href="#">牛仔褲</a>
+                </div>
+            </div>
+            <div class="large_category">
+                <a href="#">
+                    <h3 class="nav_category">連身類</h3>
+                </a>
+                <div class="nav_category_Details">
+                    <a href="#">洋裝</a>
+                    <a href="#">連身褲</a>
+                    <a href="#">泳裝</a>
+                </div>
+            </div>
+            <div class="large_category">
+                <a href="#">
+                    <h3 class="nav_category">配飾</h3>
+                </a>
+                <div class="nav_category_Details">
+                    <a href="#">耳環</a>
+                    <a href="#">首飾</a>
+                    <a href="#">戒指</a>
+                    <a href="#">髮飾</a>
+                    <a href="#">帽子</a>
+                </div>
+            </div>
+            <div class="large_category">
+                <a href="#">
+                    <h3 class="nav_category">風格支線</h3>
+                </a>
+                <div class="nav_category_Details">
+                    <a href="#">法國旅拍系列</a>
+                    <a href="#">居家休閒系列</a>
+                    <a href="#">電影聯名系列</a>
+                </div>
+            </div>
+            <div class="large_category">
+                <a href="#">
+                    <h3 class="nav_category">優惠活動</h3>
+                </a>
+                <div class="nav_category_Details">
+                    <a href="#">新品95折</a>
+                    <a href="#">兩件$798</a>
+                    <a href="#">三件7折</a>
+                </div>
+            </div> -->
         </nav>
         <nav class="shop_all_nav_rwd">
             <div class="large_category_rwd_tab" id="category_rwd_tab">
@@ -748,6 +816,60 @@
                     name_f: ['法國旅拍系列', '居家休閒系列', '電影聯名系列'],
                     name_g: ['新品95折', '兩件$798', '三件7折'],
 
+                    productTypesList:[
+                        {
+                            title:"上身類",
+                            url:"#",
+                            productTypes:[
+                                {
+                                    url:"#",
+                                    linkName:"無袖"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"短袖"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"長袖"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"襯衫"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"外套"
+                                }
+                            ]
+                        },
+                        {
+                            title:"下身類",
+                            url:"#",
+                            productTypes:[
+                                {
+                                    url:"#",
+                                    linkName:"短裙"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"長裙"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"短褲"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"長褲"
+                                },
+                                {
+                                    url:"#",
+                                    linkName:"牛仔褲"
+                                }
+                            ]
+                        }
+                    ]
                 }
             },
         }).mount('#nav')
